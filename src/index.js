@@ -11,22 +11,19 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-
 app.use(bodyParser.json())
-
-const {db_connection} = require('./config/db')
-db_connection();
-
-const port = 4000;
-app.listen(port, ()=>{
-    console.log(`DB connected on port: ${port}`)
-})
-
 app.use(cors());
+
+const {database_connection} = require('./config/db')
+database_connection();
+
+app.listen(process.env.PORT, ()=>{
+    console.log(`DB connected on port: ${process.env.PORT}`)
+})
 
 /*Routes*/
 
-//localhost:4000/
+//localhost:$PORT/
 app.get('/', (req, res) => {
     res.send("Hello from backend")
 })
