@@ -26,4 +26,11 @@ app.listen(process.env.PORT, ()=>{
 //localhost:$PORT/
 app.get('/', (req, res) => {
     res.send("Hello from backend")
-})
+});
+
+/*Collections*/
+
+//localhost:$PORT/productos
+
+//localhost:$PORT/contacto
+app.use('/productos', require('../src/routers/products.router'))
