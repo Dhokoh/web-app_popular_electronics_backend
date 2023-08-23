@@ -3,9 +3,9 @@ const product = require('../models/productSchema');
 const getProducts = async (req, res) => {
     const all_products = await product.find({});
     res.json(all_products);
-    console.log('Displaying all products in all categories');
+    res.send('Displaying all products in all categories');
     if (all_products == []){
-        console.log('No products found')
+        res.send('No products found')
     }
 };
 
