@@ -4,7 +4,7 @@ const getProducts = async (req, res) => {
     const all_products = await product.find({});
     res.json(all_products);
     console.log('Displaying all products in all categories');
-    if (!all_products){
+    if (all_products == []){
         console.log('No products found')
     }
 };
