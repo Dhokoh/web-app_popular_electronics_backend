@@ -7,12 +7,15 @@ const { getProducts, addProduct, deleteProduct, updateProduct } = require('../co
 product_router.get('/', getProducts);
 
 //localhost:$PORT/productos
+//admin required
 product_router.post('/', addProduct);
 
 //localhost:$PORT/productos/{referencia}
+//admin required
 product_router.delete('/:referencia', deleteProduct);
 
 //localhost:$PORT/productos/{referencia}
+//admin required
 product_router.put(':/referencia', updateProduct);
 
 module.exports = product_router;
