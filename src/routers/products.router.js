@@ -16,6 +16,6 @@ product_router.delete('/:referencia', deleteProduct);
 
 //localhost:$PORT/productos/{referencia}
 //admin required
-product_router.put(':/referencia', updateProduct);
+product_router.put('/:referencia', updateProduct);
 
 module.exports = product_router;
