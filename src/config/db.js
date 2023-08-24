@@ -4,6 +4,7 @@
 //Other imports
 
 //Database config
+require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
