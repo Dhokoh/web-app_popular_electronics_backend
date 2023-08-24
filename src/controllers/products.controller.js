@@ -2,7 +2,12 @@ const product = require('../models/productSchema');
 
 const getProducts = async (req, res) => {
     const all_products = await product.find({});
-    res.json(all_products);
+    if (all_products == []){
+        res.send("No hay productos para mostrar");
+    }else{
+        res.json(all_products);
+    }
+    
 };
 
 const addProduct = async (req, res) => {
