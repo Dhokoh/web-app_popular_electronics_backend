@@ -11,4 +11,6 @@ contact_router.get('/', (req, res) => {
 //localhost:$PORT/contacto
 contact_router.post('/', send_email);
 
+module.exports = contact_router;
+
 
