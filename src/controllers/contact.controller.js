@@ -5,10 +5,10 @@ const html_email = `
     <p> this is an email sent with nodemailer </p>
 `;
 
-//to be deleted
-const getContactTest = async (req, res) => {
-    res.send('hello from contacto backend')
-}
+// //to be deleted
+// const getContactTest = async (req, res) => {
+//     res.send('hello from contacto backend')
+// }
 
 const send_email = async (req, res) => {
     try{
