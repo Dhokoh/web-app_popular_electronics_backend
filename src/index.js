@@ -32,3 +32,4 @@ app.get('/', (req, res) => {
 
 //https://web-app-popular-electronics-backend.onrender.com/productos
 app.use('/productos', require('../src/routers/products.router'));
+app.use('/contacto', require('../src/routers/contact.router'));

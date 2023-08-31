@@ -60,5 +60,5 @@ const add_client_user = async (req, res) => {
         });
     }
 }
-module.exports = {get_all_admin_users, get_all_client_users, add_admin_user};
+module.exports = {get_all_admin_users, get_all_client_users, add_admin_user, add_client_user};
 
