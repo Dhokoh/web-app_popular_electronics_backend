@@ -4,7 +4,7 @@ const { send_email } = require ('../controllers/contact.controller');
 
 
 //localhost:$PORT/contacto
-contact_router.get('/', res.send("Hello from contact backend"));
+contact_router.get('/');
 
 //localhost:$PORT/contacto
 contact_router.post('/', send_email);
