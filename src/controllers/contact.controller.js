@@ -13,12 +13,12 @@ const html_email = `
 const send_email = async (req, res) => {
     try{
         const email_transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
+            host: 'https://smtp.gmail.com/',
             port: 465, 
             secure: true,
             auth: {
-                user: 'webappemailtester@gmail.com',
-                pass: 'GoGeta2!'
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PW
             }
         });
 
