@@ -13,8 +13,8 @@ const html_email = `
 const send_email = async (req, res) => {
     try{
         const email_transporter = nodemailer.createTransport({
-            host: 'https://smtp.gmail.com/',
-            port: 465, 
+            host: 'smtp-mail.outlook.com',
+            port: 587, 
             secure: true,
             auth: {
                 user: process.env.SMTP_USER,
@@ -23,7 +23,7 @@ const send_email = async (req, res) => {
         });
 
         const req_info = await email_transporter.sendMail({
-            from: 'Popular Electronics <webappemailtester@gmail.com',
+            from: 'webapptester123@outlook.com',
             to: 'davidhogarcia@gmail.com',
             subject: 'test email using nodemailer',
             html: html_email
