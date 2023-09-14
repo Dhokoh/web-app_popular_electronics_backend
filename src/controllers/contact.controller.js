@@ -13,12 +13,12 @@ const html_email = `
 const send_email = async (req, res) => {
     try{
         const email_transporter = nodemailer.createTransport({
-            host: 'smtp-mail.outlook.com',
-            port: 587, 
+            host: process.env.ELASTIC_SMTP_SERVER,
+            port: process.env.ELASTIC_SMTP_PORT, 
             secure: true,
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PW
+                user: process.env.ELASTIC_SMTP_USER,
+                pass: process.env.ELASTIC_SMTP_PW
             }
         });
 
