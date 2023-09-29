@@ -14,10 +14,6 @@ const clientSchema = mongoose.Schema(
             type: String,
             require: true
         },
-        vip_client: {
-            type: Boolean,
-            require: true
-        }
     }
 );
 
