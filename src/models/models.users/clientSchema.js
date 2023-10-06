@@ -14,8 +14,12 @@ const clientSchema = mongoose.Schema(
             type: String,
             require: true
         },
+        password: {
+            type: String, 
+            require: true
+        }
     }
 );
 
-const Admin = mongoose.model('admin', adminSchema);
-module.exports = Admin;
+const Client = mongoose.model('client', clientSchema);
+module.exports = Client;
