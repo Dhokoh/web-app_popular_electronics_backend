@@ -17,7 +17,7 @@ const clientSchema = mongoose.Schema(
         password: {
             type: String, 
             require: true
-        }
+        },
     }
 );
 
