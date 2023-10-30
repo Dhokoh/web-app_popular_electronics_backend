@@ -35,28 +35,35 @@ const add_admin_user = async (req, res) => {
 
     }catch{
         res.json({
-            msg: 'No fue posible crear su cuenta admin, por favor contacte con el administrador del sistema.'
+            msg: 'No fue posible crear nueva cuenta de admin. Por favor intente de nuevo'
         });
     }
 };
 
 const add_client_user = async (req, res) => {
-    try{
-        const {name, email, ph_number} = req.body;
-        const salt = await bcryptjs.genSalt(10);
-        const hashed_pword = await bcryptjs.hash(password, salt);
-
-        const new_client_user = client_user.create({
-            name: name,
-            email: email, 
-            ph_number: ph_number,
-        });
-
-        res.json(new_client_user);
-    }catch{
-        res.json({
-            msg: 'No fue posible crear su cuenta, por favor intente mas tarde'
-        });
+    const {name, email, ph_number} = req.body;
+    const existingCl = await client_user.findOne({email: req.body.email});
+    if (existingCl){
+        window.alert("Email en uso");
+        res.status(500);
+    }else{
+        try{
+            const salt = await bcryptjs.genSalt(10);
+            const hashed_pword = await bcryptjs.hash(password, salt);
+    
+            const new_client_user = client_user.create({
+                name: name,
+                email: email, 
+                ph_number: ph_number,
+                password: hashed_pword
+            });
+    
+            res.json(new_client_user);
+        }catch{
+            res.json({
+                msg: 'No fue posible crear su cuenta, por favor intente mas tarde'
+            });
+        }
     }
 }
 module.exports = {get_all_admin, get_all_clients, add_admin_user, add_client_user};
