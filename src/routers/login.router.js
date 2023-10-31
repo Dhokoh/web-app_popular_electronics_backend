@@ -15,9 +15,12 @@ login_router.get('/', (req, res) => {
 
 
 login_router.post('/', (req, res) => {
-    res.send("This is backend on POST request");
-    const {name, ph_number, email, password} = req.body;
-    
+    const {name, ph_number, email, formID} = req.body;
+    if (formID === 'loginform'){
+        res.send("Hello, you're logged in")
+    }if (formID === 'regform'){
+        add_client_user();
+    }
 })
 
 module.exports = login_router;
