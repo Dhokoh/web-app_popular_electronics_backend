@@ -10,16 +10,18 @@ const admin = require('../models/models.users/adminSchema');
 
 //localhost:3000/login/
 login_router.get('/', (req, res) => {
-    res.send('Hello this is login page backend on GET request')
+    res.send(get_all_clients())
 });
 
 
 login_router.post('/', (req, res) => {
-    const {name, ph_number, email, formID} = req.body;
-    if (formID === 'loginform'){
-        res.send("Hello, you're logged in")
-    }if (formID === 'regform'){
-        add_client_user();
+    const {formID} = req.body;
+    if (formID === "regform"){
+        res.send("new user registered");
+    }else{
+        if (formID === "loginform"){
+            res.send("user logged in")
+        }
     }
 })
 

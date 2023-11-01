@@ -16,7 +16,11 @@ const get_all_admin = async (req, res) => {
 
 const get_all_clients = async (req, res) => {
     const all_client_users = await client_user.find({});
-    res.json(all_client_users)
+    if (all_client_users == []){
+        res.send("No hay usuarios");
+    }else{
+        res.json(all_client_users)
+    }
 };
 
 const add_admin_user = async (req, res) => {
